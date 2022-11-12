@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('jambasangsang/assets/img/favicon.jpg') }}">
@@ -37,6 +37,10 @@
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="{{ asset('jambasangsang/assets/css/style.css') }}">
+
+    <!-- jquery CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+    
 </head>
 
 <body>
@@ -64,6 +68,8 @@
 
     <!-- jQuery -->
     <script src="{{ asset('jambasangsang/assets/js/jquery-3.5.1.min.js') }}"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+
 
     <!-- Bootstrap Core JS -->
     <script src="{{ asset('jambasangsang/assets/js/popper.min.js') }}"></script>
@@ -79,6 +85,7 @@
 
     <!-- Custom JS -->
     <script src="{{ asset('jambasangsang/assets/js/app.js') }}"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
 
 
 

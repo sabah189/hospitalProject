@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Department;
+use App\Models\Departement;
 use App\Http\Requests\StoreDepartmentRequest;
 use App\Http\Requests\UpdateDepartmentRequest;
 
@@ -13,9 +13,13 @@ class DepartmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function index()
     {
-        //
+        $datadepart = Departement::all();
+    
+       
+        return view('departements.index',compact('datadepart'));
     }
 
     /**
@@ -23,9 +27,9 @@ class DepartmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createDepart()
     {
-        //
+        return view('departements.create');
     }
 
     /**

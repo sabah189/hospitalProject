@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class CustomPatient extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'cin_number', 'first_name','second_name'
+    ];
 }

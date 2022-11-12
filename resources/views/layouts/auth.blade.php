@@ -41,17 +41,17 @@
         <link rel="stylesheet" href="{{ asset('jambasangsang/assets/css/style.css') }}">
     </head>
 
-    <body class="account-page">
+    <body class="account-page" >
 
 		<!-- Main Wrapper -->
         <div class="main-wrapper">
 			<div class="account-content">
-				<a href="job-list.html" class="btn btn-primary apply-btn">Apply Job</a>
+
 				<div class="container">
 
 					<!-- Account Logo -->
 					<div class="account-logo">
-						<a href="index.html"><img src="assets/img/logo2.jpg" alt="Dreamguy's Technologies"></a>
+						<!-- <a href="index.html"><img src="assets/img/video-call.jpg" alt="Dreamguy's Technologies"></a> -->
 					</div>
 					<!-- /Account Logo -->
 

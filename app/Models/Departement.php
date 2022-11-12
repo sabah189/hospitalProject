@@ -14,5 +14,10 @@ class Departement extends Model
         return $this->hasMany(Medecin::class, 'foreign_key');
     }
 
+    public function infirmieres()
+    {
+        return $this->hasMany(Infirmiere::class, 'foreign_key');
+    }
+
 
 }

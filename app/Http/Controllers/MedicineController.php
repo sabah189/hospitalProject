@@ -13,6 +13,12 @@ class MedicineController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function medicament()
+    {
+        return view('medicament');
+    }
+
     public function index()
     {
         //

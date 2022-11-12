@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('infirmieres', function (Blueprint $table) {
             $table->id();
-            /* $table->bigInteger('dept_id')->unsigned();
+            $table->bigInteger('dept_id')->unsigned();
             $table->foreign('dept_id')
                 ->references('id')
                 ->on('departements')
                 ->onDelete('restrict')
-                ->onUpdate('restrict'); */
+                ->onUpdate('restrict'); 
             $table->string('code_interne')->unique();
             $table->string('grade')->nullable();
             $table->date('date_integration')->nullable();

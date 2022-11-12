@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\CustomPatientController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,6 +24,21 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/patients', [App\Http\Controllers\HomeController::class, 'getPatients'])->name('patients');
+
+/* ------ patients ---- */
+Route::get('/patients', [App\Http\Controllers\CustomPatientController::class, 'index'])->name('patients');
+Route::get('/patients/create', [App\Http\Controllers\CustomPatientController::class, 'createPatients'])->name('patients.create');
+Route::post('/patients', [CustomPatientController::class, 'store'])->name('patients.store');
+
+/* ------ departements---- */
+Route::get('/departement', [App\Http\Controllers\DepartmentController::class, 'index'])->name('departement');
+Route::get('/departements/create', [App\Http\Controllers\DepartmentController::class, 'createDepart'])->name('departements.create');
+
+/* ------ Medicines---- */
+Route::get('/medicines', [App\Http\Controllers\MedicineController::class, 'medicament'])->name('medicament');
+ 
+/* Route::resource('patients', CustomPatientController::class); */
+
+
 
 

@@ -19,26 +19,26 @@ return new class extends Migration
             $table->integer('type')->default(1); // 1- Hospitalisation 2- urgence 3- Externe
             $table->date('date_entree')->nullable();
            
-            /* $table->bigInteger('doctor_id')->nullable()->unsigned();
+            $table->bigInteger('doctor_id')->nullable()->unsigned();
             $table->foreign('doctor_id')
                   ->references('id')
-                  ->on('doctors')
+                  ->on('medecins')
                   ->onDelete('restrict')
-                  ->onUpdate('restrict'); */
+                  ->onUpdate('restrict'); 
  
-            /* $table->bigInteger('dept_id')->nullable()->unsigned();
+            $table->bigInteger('dept_id')->nullable()->unsigned();
             $table->foreign('dept_id')
                 ->references('id')
                 ->on('departements')
                 ->onDelete('restrict')
-                ->onUpdate('restrict'); */
+                ->onUpdate('restrict'); 
  
-            /* $table->bigInteger('patieent_id')->nullable()->unsigned();
-            $table->foreign('patieent_id')
+            $table->bigInteger('patient_id')->nullable()->unsigned();
+            $table->foreign('patient_id')
                 ->references('id')
-                ->on('patieents')
+                ->on('custom_patients')
                 ->onDelete('restrict')
-                ->onUpdate('restrict'); */
+                ->onUpdate('restrict');
  
         /*     $table->bigInteger('assureur_id')->nullable()->unsigned();
             $table->foreign('assureur_id')

@@ -22,8 +22,8 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('telephone')->nullable();
             $table->mediumText('adress')->nullable();
-            $table->integer('nationality')->nullable();
-            $table->integer('city')->nullable();
+            $table->string('nationality')->nullable();
+            $table->string('city')->nullable();
             $table->string('gender')->nullable();
             $table->date('date_birthday')->nullable();
             $table->string('family_situation')->nullable();
