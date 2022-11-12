@@ -25,6 +25,8 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('jambasangsang/assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
+  
 
     <!-- Fontawesome CSS -->
     <link rel="stylesheet" href="{{ asset('jambasangsang/assets/css/font-awesome.min.css') }}">
@@ -86,6 +88,7 @@
     <!-- Custom JS -->
     <script src="{{ asset('jambasangsang/assets/js/app.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
 
 
 

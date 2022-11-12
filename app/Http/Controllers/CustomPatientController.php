@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CustomPatient;
-use App\Http\Requests\Request;
+use Illuminate\Http\Request;
 
 use App\Http\Requests\PatientCreateRequest;
 
@@ -27,8 +27,9 @@ class CustomPatientController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
 
-    public function createPatients()
+    public function create()
     {
+        
         return view('patients.create');
     }
 
@@ -41,9 +42,26 @@ class CustomPatientController extends Controller
           
     }
 
+    public function edit(CustomPatient $data)
+    {
+        return view('patients.edit',compact('data'));
+    }
+
+    public function update(PatientCreateRequest $request, CustomPatient $data)
+    {
+       
+    
+        $product->update($request->all());
+    
+        return redirect()->route('patients.index')
+                        ->with('success','Patient updated successfully');
+    }
+
     public function store(PatientCreateRequest $request)
     {
-        $patient=new Patient();
+       
+
+         $patient=new Patient();
  
         $dateBirthday = date_create($request->date_birthday);
 
@@ -76,7 +94,7 @@ class CustomPatientController extends Controller
 
 
     }
-    
+     
 
 }
 }

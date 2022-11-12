@@ -21,9 +21,11 @@
 					</div>
 				</div>
  
-<form method="post" action="{{ route('patients.store') }}" class="form-horizontal" enctype="multipart/form-data">
+<form method="POST" action="{{ route('patients.update',$data->id) }}" class="form-horizontal" enctype="multipart/form-data">
 
 @csrf
+@method('PUT')
+
             <!-- page title area end -->
 <div class="main-content-inner" >
 <div class="row" align="center">
@@ -40,7 +42,7 @@
  <!-- First name -->
 
             <label class="col-sm-2 control-label" for="first_name">{{__('First Name')}}<span style="color:red">*</span></label></label>
-            <input type="text" class="  form-control mb-3" name="first_name" required id="first_name"  value="{{ old('first_name') }}" placeholder="First Name" >
+            <input type="text" class="  form-control mb-3" name="first_name" required id="first_name"  value="{{ $data->first_name }}" placeholder="First Name" >
             @error('first_name')
             <div class="h6 text-danger"><strong> {{ $message }}</strong></div>
             @enderror

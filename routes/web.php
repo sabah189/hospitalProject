@@ -27,8 +27,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 /* ------ patients ---- */
 Route::get('/patients', [App\Http\Controllers\CustomPatientController::class, 'index'])->name('patients');
-Route::get('/patients/create', [App\Http\Controllers\CustomPatientController::class, 'createPatients'])->name('patients.create');
-Route::post('/patients', [CustomPatientController::class, 'store'])->name('patients.store');
+Route::get('/patients/create', [App\Http\Controllers\CustomPatientController::class, 'create'])->name('patients.create');
+Route::post('/patients/edit', [App\Http\Controllers\CustomPatientController::class, 'edit'])->name('patients.edit');
+Route::post('/patients/save', [App\Http\Controllers\CustomPatientController::class, 'store'])->name('patients.store');
 
 /* ------ departements---- */
 Route::get('/departement', [App\Http\Controllers\DepartmentController::class, 'index'])->name('departement');

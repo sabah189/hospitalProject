@@ -102,8 +102,8 @@ $(function () {
         'searching': true,
         'ordering': true,
         'info': true,
-        'autoWidth': true,
-        "scrollX": true,
+        'autoWidth': false,
+        "scrollX": false,
         columnDefs: [
             {
             orderable: false,

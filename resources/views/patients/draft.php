@@ -538,3 +538,83 @@ $(function () {
                 <!-- /.box-footer -->
             </form>
         </div>
+
+
+
+
+
+
+
+
+
+        
+        <tbody>
+                            <?php use Illuminate\Support\Facades\DB; ?>
+ 
+                            @foreach ($data as $app)
+                            <tr>
+                                <td><input type="checkbox" class="check-data" id="{{$app->id}}" name="{{$app->id}}"></td>
+                                <td class="btn-group">
+                                    <div class="dropdown inline">
+                                        <a class="btn btn-sm dropdown-toggle" type="button" id="more-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-cog menu-icon"></i>
+                                        </a>
+                                        @if ($app->status == 1  )
+                                        <ul class="dropdown-menu" aria-labelledby="more-options">
+                                            <li><a href="{{route('doctor.edit',$app->id)}}" class=" {{Active::checkRoute('doctor.edit')}}" title="Modifier"><i class="menu-icon fa fa-edit"></i>  Editer infos</a></li>
+                                            <li><a href="#" onclick="dialogTransfer({{$app->id}} , {{$app->dept_id}})" class="{{Active::checkRoute('doctor.transferDepartement')}}" title="Transférer"><i class="menu-icon fa fa-exchange-alt"></i>  Transférer nouveau Sce</a></li>
+                                            <li><a href="#"><i class="fas fa-user-injured menu-icon"></i>   Patients consultés</a></li>
+                                            <li><a href="#"><i class="fas fa-file-signature menu-icon"></i>   Prise en charges</a></li>
+                                            <li><a href="#"><i class="fas fa-procedures menu-icon"></i>   Hospitalisations</a></li>
+                                            <li><a href="#"><i class="fas fa-envelope menu-icon"></i> Envoyer un message</a></li>
+                                            <li><a href="#" onclick="dialogActivate({{$app->id}})" class=" activateButton {{Active::checkRoute('doctor.status')}}" title="Changer le statut"><i class="menu-icon  fas fa-key pr-2"></i>   Désactiver</a></li>
+                                            <li><a href="#" onclick="dialogDelete({{$app->id}})" class=" {{Active::checkRoute('doctor.destroy')}}" title="Supprimer"><i class="text-danger fa fa-trash-alt" ></i>  Supprimer</a></li>
+                                        </ul>
+                                        @endif
+                                        @if ($app->status == 0  )
+                                        <ul class="dropdown-menu" aria-labelledby="more-options">
+                                            <li><a href="{{route('doctor.edit',$app->id)}}" class=" {{Active::checkRoute('doctor.edit')}}" title="Modifier"><i class="menu-icon fa fa-edit"></i>  Editer infos</a></li>
+                                            <li><a href="#" onclick="dialogTransfer({{$app->id}} , {{$app->dept_id}})" class=" {{Active::checkRoute('doctor.transferDepartement')}}" title="Transférer"><i class="menu-icon fa fa-exchange-alt"></i>  Transférer nouveau Sce</a></li>
+                                            <li><a href="#"><i class="fas fa-user-injured menu-icon"></i>   Patients consultés</a></li>
+                                            <li><a href="#"><i class="fas fa-file-signature menu-icon"></i>   Prise en charges</a></li>
+                                            <li><a href="#"><i class="fas fa-procedures menu-icon"></i>   Hospitalisations</a></li>
+                                            <li><a href="#"><i class="fas fa-envelope menu-icon"></i> Envoyer un message</a></li>
+                                            <li><a href="#" onclick="dialogActivate({{$app->id}})" class="{{Active::checkRoute('doctor.status')}}" title="Changer le statut"><i class="menu-icon  fas fa-key pr-2"></i>  Activer</a></li>
+                                            <li><a href="#" onclick="dialogDelete({{$app->id}})" class=" {{Active::checkRoute('doctor.destroy')}}" title="Supprimer"><i class="text-danger fa fa-trash-alt"></i>  Supprimer</a></li>
+                                        </ul>
+                                        @endif
+                                    </div>
+                                    <a href="{{route('doctor.show',$app->id)}}" class="btn btn-sm{{Active::checkRoute('doctor.show')}}" title="Consulter" ><i class="fas fa-info-circle menu-icon"></i> </a>
+                                    {{-- <a href="{{route('doctor.edit',$app->id)}}" class="btn btn-sm btn-secondary {{Active::checkRoute('doctor.edit')}}" title="Modifier" ><i class="fa fa-edit"></i> </a> --}}
+                                </td>
+                                <td>{{$app->id}}</td>
+                                <td>{{$app->code_interne}}</td>
+                                <td>{{$app->first_name}}</td>
+                                <td>{{$app->second_name}}</td>
+                                <td>Sce. {{ucWords(App\Departement::find($app->dept_id)->name)}}</td>
+                                <td>{{date("d/m/Y",strtotime($app->date_integration))}}</td>
+                                <td>{{$app->grade}}</td>
+                                <td>{{$app->email}}</td>
+                                <td>{{$app->telephone}}</td>
+                                <td>{{$app->cin_number}}</td>
+                                <td>{{date("d/m/Y",strtotime($app->date_birthday))}}</td>
+                                <?php
+                                    $city = DB::table('cities')->where('id', $app->city)->first();
+                                    if($city) {
+                                ?>      
+                                    <td>{{$city->nom_ville}}</td>      
+                                <?php } else { ?>
+                                    <td>Non assigné</td>
+                                <?php } ?>  
+                               
+                                <td>{{$app->bank_name}}</td>
+                                <td>{{$app->bank_account}}</td>
+                                <td>{{$app->mutuale_name}}</td>
+                                @if ($app->status == 0)
+                                    <td><i class="fas fa-times text-danger"></i></td>
+                                @endif
+                                @if ($app->status == 1)
+                                    <td><i class="fas fa-check text-success"></i></td>                                
+                                @endif  
+                            @endforeach
+                        </tbody>

@@ -53,8 +53,36 @@
                                     <tr>
                                         <td><input type="checkbox" class="check-data" id="{{$patients->id}}" name="{{$patients->id}}"></td>
                                         <td class="btn-group">
-                                           null 
-                                        </td>
+                                    <div class="dropdown inline">
+                                        <a class="btn btn-sm dropdown-toggle" type="button" id="more-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-cog menu-icon"></i>
+                                        </a>
+                                        @if ($patients->status == 1  )
+                                        <ul class="dropdown-menu" aria-labelledby="more-options">
+                                            <li><a href="{{route('patients.edit',$patients->id)}}" class=" {{route('patients.edit')}}" title="Modifier"><i class="menu-icon fa fa-edit"></i>  Editer infos</a></li>
+                                            <li><a href="#"><i class="fa fa-user-injured menu-icon"></i>   Patients consultés</a></li>
+                                            <li><a href="#"><i class="fa fa-file-signature menu-icon"></i>   Prise en charges</a></li>
+                                            <li><a href="#"><i class="fa fa-procedures menu-icon"></i>   Hospitalisations</a></li>
+                                            <li><a href="#"><i class="fa fa-envelope menu-icon"></i> Envoyer un message</a></li>
+                                            <li><a href="#" onclick="dialogActivate({{$patients->id}})" class="" title="Changer le statut"><i class="menu-icon  fa fa-key pr-2"></i>   Désactiver</a></li>
+                                            <li><a href="#" onclick="dialogDelete({{$patients->id}})" class=" " title="Supprimer"><i class="text-danger fa fa-trash-alt" ></i>  Supprimer</a></li>
+                                        </ul>
+                                        @endif
+                                        @if ($patients->status == 0  )
+                                        <ul class="dropdown-menu" aria-labelledby="more-options">
+                                            <li><a href="{{route('patients.edit',$patients->id)}}" class=" {{Active::checkRoute('patients.edit')}}" title="Modifier"><i class="menu-icon fa fa-edit"></i>  Editer infos</a></li>
+                                            <li><a href="#"><i class="fa fa-user-injured menu-icon"></i>   Patients consultés</a></li>
+                                            <li><a href="#"><i class="fa fa-file-signature menu-icon"></i>   Prise en charges</a></li>
+                                            <li><a href="#"><i class="fa fa-procedures menu-icon"></i>   Hospitalisations</a></li>
+                                            <li><a href="#"><i class="fa fa-envelope menu-icon"></i> Envoyer un message</a></li>
+                                            <li><a href="#" onclick="dialogActivate({{$patients->id}})" class="" title="Changer le statut"><i class="menu-icon  fa fa-key pr-2"></i>  Activer</a></li>
+                                            <li><a href="#" onclick="dialogDelete({{$patients->id}})" class="" title="Supprimer"><i class="text-danger fa fa-trash-alt"></i>  Supprimer</a></li>
+                                        </ul>
+                                        @endif
+                                    </div>
+                                    <a href="" class="btn btn-sm" title="Consulter" ><i class="fa fa-info-circle menu-icon"></i> </a>
+                                    {{-- <a href="{{route('patients.edit',$patients->id)}}" class="btn btn-sm btn-secondary {{route('patients.edit')}}" title="Modifier" ><i class="fa fa-edit"></i> </a> --}}
+                                </td>
                                         <td>{{$patients->id}}</td>
                                         <td>{{$patients->code_patient}}</td>
                                         <td>{{$patients->first_name}}</td>

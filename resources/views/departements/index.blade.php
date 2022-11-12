@@ -28,6 +28,12 @@
                   
                   <style>
                       th.dt-center, td.dt-center { text-align: center;}
+                      .dataTables_wrapper .dataTables_paginate .paginate_button:hover{
+	background: none !important;
+	background-color: none !important;
+	border:none !important;
+
+}
                   </style>
                       <table id="departement-table" class="table table-bordered table-hover table-striped dataTable stripe" role="grid"aria-describedby="departement-table-info">
                           <thead>
